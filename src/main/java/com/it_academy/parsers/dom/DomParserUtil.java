@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class DOMParserUtils {
+public class DomParserUtil {
     public static DocumentBuilder createDocumentBuilder() {
         DocumentBuilderFactory factory =
                 DocumentBuilderFactory.newInstance();

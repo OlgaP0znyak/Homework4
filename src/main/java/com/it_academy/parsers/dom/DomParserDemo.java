@@ -54,7 +54,7 @@ public class DomParserDemo {
             article.setId(Integer.parseInt(valueAttributeOfNode));
 
             NodeList childNodes = node.getChildNodes();
-            DOMParserUtils.getNodeListStream(childNodes).forEach(childNode -> {
+            DomParserUtil.getNodeListStream(childNodes).forEach(childNode -> {
                 if (childNode instanceof Element) {
                     String contentChildNode = childNode
                             .getLastChild()
@@ -74,7 +74,7 @@ public class DomParserDemo {
                         case "hotkeys":
                             List<String> hotkeys = new ArrayList<>();
                             NodeList childChildNodes =childNode.getChildNodes();
-                            DOMParserUtils.getNodeListStream(childChildNodes).forEach(childChildNode ->{
+                            DomParserUtil.getNodeListStream(childChildNodes).forEach(childChildNode ->{
                                 if (childChildNode instanceof Element) {
                                     String contentChildChildNode = childChildNode
                                             .getLastChild()
@@ -93,18 +93,18 @@ public class DomParserDemo {
     }
 
     public static void main(String[] args) {
-        Document document = DOMParserUtils.parseXMLDocument(XML_PATH);
-        NodeList nodeList = DOMParserUtils.getNodeList(document);
+        Document document = DomParserUtil.parseXMLDocument(XML_PATH);
+        NodeList nodeList = DomParserUtil.getNodeList(document);
 
         Journal journal = new Journal();
         Contact contact = new Contact();
 
-        DOMParserUtils.getNodeListStream(nodeList).forEach(node -> {
+        DomParserUtil.getNodeListStream(nodeList).forEach(node -> {
             if (node instanceof Element) {
                 setTitleWithXMLChildNodeValues(journal, node);
 
                 NodeList childNodes = node.getChildNodes();
-                DOMParserUtils.getNodeListStream(childNodes).forEach(childNode -> {
+                DomParserUtil.getNodeListStream(childNodes).forEach(childNode -> {
                     if (childNode instanceof Element) {
                         setContactWithXMLChildNodeValues(contact, childNode);
                         Article article = new Article();
